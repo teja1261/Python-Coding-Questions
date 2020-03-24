@@ -67,17 +67,13 @@ just now
 
 import datetime
 import math
-a = int(input())
-c = []
-for i in range(a*2):
-    b = input()
-    c.append(b)
-for i in range(0,len(c),2):
-    x = c[i]
-    y = c[i+1]
-    x = datetime.datetime.strptime(x,'%a %d %b %Y %H:%M:%S %z')
-    y = datetime.datetime.strptime(y,'%a %d %b %Y %H:%M:%S %z')
-    s = (y-x).total_seconds()
+N = int(input())
+for i in range(N):
+    t1 = input()
+    t2 = input()
+    T1 = datetime.datetime.strptime(t1,'%a %d %b %Y %H:%M:%S %z')
+    T2 = datetime.datetime.strptime(t2,'%a %d %b %Y %H:%M:%S %z')
+    s = (T2 - T1).total_seconds()
     if s < 60:
         print('just now')
     elif s >= 60 and s < 3600:
@@ -95,7 +91,7 @@ for i in range(0,len(c),2):
         else:
             print(h,'hours ago')
     elif s >= 86400:
-        s = (y-x).days
+        s = (T2 - T1).days
         if s == 1:
             print(s,'day ago')
         elif s < 7:
