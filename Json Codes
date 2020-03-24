@@ -1,0 +1,20 @@
+Write a program to print the total score of all the three subjects in assignment - 1
+
+Input:
+{"maths": {"assignment_1": 20, "assignment_2": 30}, "physics": {"assignment_1": 12, "assignment_2": 15}, "chemistry": {"assignment_1": 23, "assignment_2": 34}}
+
+output:
+55
+
+Code:
+
+import json
+
+x = input()
+y = json.loads(x)
+
+s = 0
+
+for i,j in y.items():
+    s += j['assignment_1']
+print(s)
