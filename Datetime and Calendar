@@ -63,6 +63,8 @@ just now
 1 minute ago
 5 minutes ago
 ------------------------------------- Method - 1 ---------------------------------------------
+#Naveen Code
+
 import datetime
 import math
 a = int(input())
@@ -119,7 +121,10 @@ for i in range(0,len(c),2):
                 print(s,'year ago')
             else:
                 print(s,'years ago')
--------------------------------------------Method - 2 -------------------------------------------                
+-------------------------------------------Method - 2 -------------------------------------------     
+
+# Sindhu Code
+
 import datetime
 n = int(input())
 for i in range(n):
