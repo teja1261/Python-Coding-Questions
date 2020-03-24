@@ -1,4 +1,4 @@
-Write a program to print the total score of all the three subjects in assignment - 1
+1.Write a program to print the total score of all the three subjects in assignment - 1
 
 Input:
 {"maths": {"assignment_1": 20, "assignment_2": 30}, "physics": {"assignment_1": 12, "assignment_2": 15}, "chemistry": {"assignment_1": 23, "assignment_2": 34}}
@@ -18,3 +18,34 @@ s = 0
 for i,j in y.items():
     s += j['assignment_1']
 print(s)
+
+2. You are given Number N and N number of data elements with a key and a value.
+
+ Create a dictionary with a key, value pairs given and convert them into JSON encoded string with the keys in lexicographical order.
+
+Input:
+3
+Maths,MA101
+Physics,PH101
+Chemistry,CH101
+
+Output:
+{"Chemistry": "CH101", "Maths": "MA101", "Physics": "PH101"}
+
+Code:
+
+import json
+n = int(input())
+
+empty_dict = {}
+
+for i in range(n):
+    key,value = input().split(',')
+    empty_dict.update({key:value})
+
+empty_dict = sorted(empty_dict.items())
+empty_dict = dict(empty_dict)
+
+d = json.dumps(empty_dict)
+
+print(d)
