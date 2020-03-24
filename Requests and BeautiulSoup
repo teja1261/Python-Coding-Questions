@@ -1,1 +1,17 @@
+You are requried to access a webpage from the given URL given in the input.And print the title of the web page which can usually be seen on the tab when opened in a browser.
 
+Hint : You can use the requests python module.
+
+input : https://en.wikipedia.org/wiki/Python_(programming_language)
+
+output : Python (programming language) wikipedia
+
+code :
+
+import requests
+from bs4 import BeautifulSoup
+
+URL = input()
+source = requests.get(URL)
+soup = BeautifulSoup(source, 'html5lib')
+print(soup.title.text)
