@@ -1,0 +1,70 @@
+Write a program that reads all the match outcomes and summarizes the information of all the matches in a points table.
+points are given to the teams based on the outcomes of the match.
+
+A win win earns a team 3 points. A draw earns 1. A loss earns 0.
+
+in the points table the following information is expected:
+
+MP : Matches Played         
+W : Matches Won       
+D : Matchhes Drawn(Tied)        
+L : Matchhes Lost
+P : Points
+
+Input:
+6
+CSK;RR;win
+RR;DD;draw
+MI;KKR;win
+SH;RR;loss
+CSK;DD;draw
+MI;DD;draw
+
+Output:
+Team                    | MP |  W |  D |  L |  P |
+CSK                     |  2 |  1 |  1 |  0 |  4 |
+MI                      |  2 |  1 |  1 |  0 |  4 |
+RR                      |  3 |  1 |  1 |  1 |  4 |
+DD                      |  3 |  0 |  3 |  0 |  3 |
+KKR                     |  1 |  0 |  0 |  1 |  0 |
+SH                      |  1 |  0 |  0 |  1 |  0 |
+
+
+Code :
+
+n = int(input())
+
+empty_dict = {}
+
+for i in range(n):
+    T1,T2,O = input().split(';')
+    if T1 not in empty_dict:
+        empty_dict.update({T1:{'MP':0,'W':0,'D':0,'L':0,'P':0}})
+    if T2 not in empty_dict:
+        empty_dict.update({T2:{'MP':0,'W':0,'D':0,'L':0,'P':0}})    
+    if O =='win':
+        empty_dict[T1]['MP'] +=1
+        empty_dict[T2]['MP'] +=1
+        empty_dict[T1]['W'] +=1
+        empty_dict[T2]['L'] +=1
+        empty_dict[T1]['P'] +=3
+    elif O =='draw':
+        empty_dict[T1]['MP'] +=1
+        empty_dict[T2]['MP'] +=1
+        empty_dict[T1]['D'] +=1
+        empty_dict[T2]['D'] +=1
+        empty_dict[T1]['P'] +=1
+        empty_dict[T2]['P'] +=1
+    elif O =='loss':
+        empty_dict[T1]['MP'] +=1
+        empty_dict[T2]['MP'] +=1
+        empty_dict[T2]['W'] +=1
+        empty_dict[T1]['L'] +=1
+        empty_dict[T2]['P'] +=3
+empty_dict = sorted(empty_dict.items())
+empty_dict = dict(empty_dict)
+empty_dict = sorted(empty_dict.items(), key = lambda x:x[1]['P'] ,reverse = True)
+empty_dict = dict(empty_dict)
+print('{:<24}'.format('Team')+ '|' + ' {:>2} '.format('MP')+ '|' + ' {:>2} '.format('W')+ '|' + ' {:>2} '.format('D')+ '|' + ' {:>2} '.format('L')+ '|' + ' {:>2} '.format('P')+ '|')
+for i,j in empty_dict.items():
+    print('{:<24}'.format(i)+ '|' + ' {:>2} '.format(j['MP'])+ '|' + ' {:>2} '.format(j['W'])+ '|' + ' {:>2} '.format(j['D'])+ '|' + ' {:>2} '.format(j['L'])+ '|' + ' {:>2} '.format(j['P'])+ '|')
