@@ -42,18 +42,27 @@ d2 = datetime.datetime.strptime(n,'%d/%m/%Y,%H:%M:%S')
 result = int((abs(d1-d2)).total_seconds())
 print(result)
 
+4.
+When users post an update on socail media, such as a URL, image, status, update etc., others users in their network are able to view this new post on their news feed.Users can also see exactly when the post was published, i.e, how many hours, minutes or seconds ago.
 
+Since sometimes posts are published and viewed in different time zones, this can be confusing. You are given two timestamps of one such post that a user can see on his newsfeed in the following format.
+Day dd Mon yyyy hh:mm:ss +xxxx
+Here +xxxx represents timezones.Your task is to print the relative time between them.
 
+Input:
+3
+Sun 05 Jan 2020 13:54:30 -0000
+Sun 05 Jan 2020 13:54:58 -0000
+Thu 08 Jan 2020 09:00:00 -0000
+Thu 08 Jan 2020 14:01:00 +0500
+Wed 07 Jan 2020 07:30:00 +0500
+Wed 07 Jan 2020 02:35:39 -0000
 
-
-
-
-
-
-
-JUST NOW BY NAVEEN
-
-
+Output:
+just now
+1 minute ago
+5 minutes ago
+------------------------------------- Method - 1 ---------------------------------------------
 import datetime
 import math
 a = int(input())
@@ -110,12 +119,7 @@ for i in range(0,len(c),2):
                 print(s,'year ago')
             else:
                 print(s,'years ago')
-                
-                
-                
-JUST NOW:
-
-
+-------------------------------------------Method - 2 -------------------------------------------                
 import datetime
 n = int(input())
 for i in range(n):
