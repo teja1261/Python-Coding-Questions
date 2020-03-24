@@ -1,6 +1,6 @@
-# Python-Coding-Questions
+# Python
 
-Modules and Packages
+#Modules and Packages
 
 A file containing a set of functions you want to include in your application.
 
