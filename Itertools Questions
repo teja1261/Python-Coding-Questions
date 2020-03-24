@@ -13,7 +13,8 @@ from itertools import groupby
 print(*[(len(list(c)), int(k)) for k, c in groupby(input())],end=' ')
 
 
-2.write a program to compress the word by replacing  repeating characters by adding number of times it's repeated just before the character
+2.
+Write a program to compress the word by replacing  repeating characters by adding number of times it's repeated just before the character
 example of compress a string:
 	ex:  door - d2or
 example of uncompress a string:
