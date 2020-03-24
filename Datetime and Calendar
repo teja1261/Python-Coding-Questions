@@ -1,5 +1,29 @@
+1.
+Greenwich Mean Time (GMT) time offset of  UTC+00:00
+Indian Standard Time (IST) time offset of UTC+05:30
+
+Write a program to convert the given DateTime string D1 in GMT to DateTime string D2 in IST.
+
+Input:
+Sun 05 Jan 2020 13:54:30
+
+Output:
+Sun 05 Jan 2020 19:24:30
+
+Code : 
+
+from datetime import datetime, timedelta
+
+D = input()
+
+D1 = datetime.strptime(D,'%a %d %b %Y %H:%M:%S')
+tdelta = timedelta(hours=5,minutes=30)
+d2 = D1 + tdelta
+D2 = datetime.strftime(d2,'%a %d %b %Y %H:%M:%S')
+print(D2,end='')
 You are given two years A and B.
 
+2.
 Write a program to count number of Mondays M , which is 1st day of the month from the year A and year B (including B).
 
 Input:
