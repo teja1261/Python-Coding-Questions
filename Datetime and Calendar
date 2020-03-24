@@ -110,3 +110,44 @@ for i in range(0,len(c),2):
                 print(s,'year ago')
             else:
                 print(s,'years ago')
+                
+                
+                
+JUST NOW:
+
+
+import datetime
+n = int(input())
+for i in range(n):
+    t1 = datetime.datetime.strptime(input(), "%a %d %b %Y %H:%M:%S %z")
+    t2 = datetime.datetime.strptime(input(), "%a %d %b %Y %H:%M:%S %z")
+    list_time =[]
+    diff = abs(t1 - t2)
+    tm = int(diff.total_seconds())
+    sec = tm//60
+    if sec == 0:
+        print("just now")
+    year = tm //(365*24*3600)
+    list_time.append(year)
+    month = tm //(31*24*3600)
+    list_time.append(month)
+    week = tm //(7*24*3600)
+    list_time.append(week)
+    day = tm//(24*3600)
+    list_time.append(day)
+    hour = tm // (60*60)
+    list_time.append(hour)
+    minute = tm //60
+    list_time.append(minute)
+    list_time.append(minute//60)
+    
+    list_1 = [("years", "year"), ("months", "month"), ("weeks","week"), ("days","day"), ("hours","hour"), ("minutes","minute")]
+    
+    for i in range(len(list_time)):
+        if list_time[i] != 0:
+            if list_time[i] == 1:
+                print("{} {} ago".format(list_time[i],list_1[i][1]))
+            elif list_time[i] > 1:
+                print("{} {} ago".format(list_time[i],list_1[i][0]))
+            break
+                
