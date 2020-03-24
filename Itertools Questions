@@ -12,3 +12,54 @@ Code:
 from itertools import groupby
 print(*[(len(list(c)), int(k)) for k, c in groupby(input())],end=' ')
 
+
+2.write a program to compress the word by replacing  repeating characters by adding number of times it's repeated just before the character
+example of compress a string:
+	ex:  door - d2or
+example of uncompress a string:
+	ex: d2or - door
+
+Input:
+3
+speed
+elephant
+jo2ly
+
+Output:
+sp2ed
+elephant
+jolly
+
+
+
+from itertools import groupby
+def passing_word(word):
+    a =[];b = []
+    for k,v in (groupby(word)):
+        a.append(k)
+        b.append(list(v))
+    for i in range(len(a)):
+        c = b[i].count(a[i])
+        if 1<c:
+            print(str(c)+a[i],end="")
+        else:
+           print(a[i],end="") 
+    print()
+    
+n = int(input())
+for i in range(n):
+    x = input();s=0
+   # print(x)
+    if x.isalpha():
+        passing_word(x)
+    else:
+        for j in range(len(x)):
+            if x[j].isdigit():
+                s = s*10+int(x[j])
+            elif s!=0: 
+                for k in range(s):
+                    print(x[j],end="")
+                    s=0
+            else:
+                print(x[j],end="")
+        print()
