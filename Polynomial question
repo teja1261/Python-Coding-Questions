@@ -1,0 +1,148 @@
+ADDITION OF TWO POLYNOMIAL EQ:
+
+
+n=int(input())
+d={};d1={}
+for i in range(n):
+    ex_a=input().split()
+    key=int(ex_a[0])
+    value=int(ex_a[1])
+    d.update({key:value})
+
+m=int(input())
+for j in range(m):
+    ex_b=input().split()
+    key=int(ex_b[0])
+    value=int(ex_b[1])
+    d1.update({key:value})
+
+for key in d1:
+    if key in d:
+        d[key]=d[key]+d1[key]
+    else:
+        d.update({key:d1[key]})
+    
+res_d={}
+for i in d:
+    if d[i]!=0:
+        res_d.update({i:d[i]})
+res_d=sorted(res_d.items(),key=lambda x:x[0],reverse=True)
+
+if len(res_d)==0:
+    print("0")
+else:
+    r1=[]
+    for k,v in res_d:
+        r1.append("{}x^{}".format(v,k))
+        r2=(" + ").join(r1)
+        r2=r2.replace("x^0","")
+        r2=r2.replace("x^1 ","x ")
+        r2=r2.replace(" + -"," - ")
+        r2=r2.replace(" 1x^"," x^")
+        r2=r2.replace("1x^","x^")
+        r2=r2.replace(" 1x "," x ")
+    print(r2)
+
+Input:
+4
+0 5
+1 0
+2 10
+3 6
+3
+0 1
+1 2
+2 4
+
+Output:
+6x^3 + 14x^2 + 2x + 6
+
+
+---------------------------------------------------
+
+Input:
+4
+0 5
+1 0
+2 10
+3 6
+4
+0 -5
+1 0
+2 -10
+3 -6
+
+Output:
+0
+
+
+
+
+SUBTRACTION OF TWO POLYNOMIALS:
+
+
+m=int(input())
+dictionary_1={}
+for i in range(m):
+    list_a=input().split()
+    key=int(list_a[0])
+    value=int(list_a[1])
+    dictionary_1.update({key:value})
+#print(dictionary_1)
+n=int(input())
+dictionary_2={}
+for i in range(n):
+    list_b=input().split()
+    key=int(list_b[0])
+    value=int(list_b[1])
+    dictionary_2.update({key:value})
+    
+
+if m>n:
+    for key in dictionary_2:
+        if key in dictionary_1:
+            dictionary_1[key]=dictionary_1[key]-dictionary_2[key]
+        else:
+            dictionary_1.update({key:dictionary_2[key]})
+else:
+     for key in dictionary_2:
+        if key in dictionary_1:
+            dictionary_1[key]=dictionary_1[key]-dictionary_2[key]
+        else:
+            dictionary_1.update({key:0-dictionary_2[key]})
+
+          
+result_dict={}
+for key in dictionary_1:
+    if dictionary_1[key]!=0:
+        result_dict.update({key:dictionary_1[key]})
+result_dict=sorted(result_dict.items(),reverse=True) 
+
+if len(result_dict)==0:
+    print(0)
+else:
+    list_1=[]
+    for key,value in result_dict:
+        list_1.append("{}x^{}".format(value,key))
+        list_2=" + ".join(list_1)
+        list_2=list_2.replace("x^0","")
+        list_2=list_2.replace("x^1 ","x ")
+        list_2=list_2.replace(" + -"," - ")
+        list_2=list_2.replace(" 1x^"," x^")
+        list_2=list_2.replace("-1x^","-x^")
+        list_2=list_2.replace(" 1x "," x ")
+    print(list_2)
+    
+INPUT:  
+4
+0 5
+1 0
+2 10
+3 6
+3
+0 1
+1 2
+2 4
+
+Output:
+6x^3 + 6x^2 - 2x + 4    
