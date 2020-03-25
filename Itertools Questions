@@ -12,6 +12,19 @@ Code:
 from itertools import groupby
 print(*[(len(list(c)), int(k)) for k, c in groupby(input())],end=' ')
 
+  			or							
+S = input()
+
+c = 1
+
+for i in range(len(S)-1):
+    if S[i] == S[i+1]:
+        c = c + 1
+    else:
+        print('({}, {})'.format(c,S[i]),end=' ')
+        c = 1
+print('({}, {})'.format(c,s[len(S)-1]),end=' ')
+
 
 2.
 Write a program to compress the word by replacing  repeating characters by adding number of times it's repeated just before the character
